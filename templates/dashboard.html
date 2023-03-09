@@ -1,0 +1,67 @@
+{% extends "layout3.html" %}
+{% block body %}
+
+<header>
+  <link href="{{url_for('static',filename='img/view-bg.jpg')}}" rel="stylesheet" />
+</header>
+
+<!-- Main Content-->
+<!-- <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7"> -->
+<div class="leftcorner">
+  <h3>Manage Data :</h3>
+  <a href="/sform"><button class="btn btn-outline-primary">Add Data</button></a>
+  <a href="/logout"><button class="btn btn-info">Logout</button> </a>
+  
+</div>
+
+<hr>
+<h1 style="margin-left:10px;">Edit Post</h1>
+<table class="table table-bordered" style="margin-left: 10px;">
+  <thead>
+    <tr>
+      <th scope="col">Roll</th>
+      <th scope="col">Nmae</th>
+      <th scope="col">Sem</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Stream</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in getdata %}
+    <tr>
+      <td>{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td>{{i[4]}}</td>
+      <td>{{i[5]}}</td>
+      <td>{{i[6]}}</td>
+      <td>{{i[7]}}</td>
+      <!-- <td>{{i[8]}}</td> -->
+
+
+      <td><a href="/edit/{{i[0]}}"><button class="btn btn-primary">Edit</button></a></td>
+      <td><a href="/delete/{{i[0]}}"><button class="btn btn-primary">Delete</button></a></td>
+    </tr>
+
+    {% endfor %}
+
+
+
+  </tbody>
+</table>
+
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}

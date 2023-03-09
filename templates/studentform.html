@@ -1,0 +1,93 @@
+{% extends "layout3.html" %}
+{% block body %}
+
+
+  <form id="contactForm" action="/sform" method="post" >    
+
+<section class="page-section" id="contact"  style="background-color: #F3EAF4;">
+                
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <h2 class="mt-0">Student Form</h2>
+                       
+                    </div>
+               </div>
+                
+                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                    <div class="col-lg-6">
+                    <!-- Name  input-->         
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" name='name'placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Sem  input-->         
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" name='sem' placeholder="Enter your sem..." data-sb-validations="required" />
+                                <label for="name">Semester</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Sem is required.</div>
+                            </div>
+                            <!-- Gender  input-->         
+                           
+                            <div class="form-check form-check-inline py-3">
+                                <input class="form-check-input" type="radio" name="gender" id="male"
+                                    value="Male" checked>
+                                <label class="form-check-label" for="male">Male</label>
+                             </div>
+                            <div class="form-check form-check-inline"> 
+                                <input class="form-check-input" type="radio" name="gender" id="female"
+                                    value="Female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="other"
+                                    value="other">
+                                <label class="form-check-label" for="other">Other</label>
+                            </div> 
+                               <!-- Depertment  input-->         
+			                <div class="form-floating mb-3">
+                                <select class="form-control" name="dept" id="depertment">
+			                      <option name="dept" value="">Depertment</option>
+			                      <option value="ME">ME</option>
+			                      <option value="CE">CE</option>
+                                  <option value="EE">EE</option>
+			                      <option value="CSE">CSE</option>
+                                  <option value="ECE">ECE</option>
+			                    </select>
+
+			                  </div>
+			                <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" name='email'placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" name='phone'placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Address  input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name='address' type="text" placeholder="Enter your address here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Address</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A address is required.</div>
+                            </div>
+                            
+                            <!-- Submit Button-->
+                            <p align="center"><button class="btn btn-primary" id="submitButton" type="submit">Submit</button></p>
+                            
+                      </div>
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+          </form>
+</body>
+</html>
+{% endblock %}
+         

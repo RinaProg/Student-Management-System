@@ -1,0 +1,136 @@
+{% extends "layout3.html" %}
+{% block body %}
+
+
+<!-- Work in progress -->
+<header>
+    <link href="{{url_for('static',filename='img/view-bg.jpg')}}" rel="stylesheet" />
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1>BasicAction</h1>
+            <a href="/dashboard"><button class="btn btn-primary">Dashboard Home</button></a>
+            <a href="/logout"><button class="btn btn-primary">Logout</button> </a>
+            <hr>
+            <h1>Edit Student Details</h1>
+        </div>
+    </div>
+</div>
+
+    <section class="page-section" id="contact" style="background-color:white;">
+
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Student Form</h2>
+
+                </div>
+            </div>
+            {% for i in getdata %}
+            <form id="contactForm" action="/update/{{i[0]}}" method="post" >
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" name='name' value="{{i[1]}}" placeholder="Enter your name..."
+                            data-sb-validations="required" />
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" name='sem' value="{{i[2]}}" placeholder="Enter your name..."
+                            data-sb-validations="required" />
+                        <label for="name">Semester</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" name='gender' value="{{i[3]}}" placeholder="Enter your name..."
+                            data-sb-validations="required" />
+                        <label for="name">Gender</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" name='dept' value="{{i[4]}}" placeholder="Enter your name..."
+                            data-sb-validations="required" />
+                        <label for="name">Depertment</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+
+                    <!-- problem -->
+                    <!-- <div class="form-check form-check-inline py-3">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="{{i[3]}}" checked>
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="{{i[3]}}">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="other" value="{{i[3]}}">
+                        <label class="form-check-label" for="other">Other</label>
+                    </div> -->
+                     
+                    <!-- problem -->
+                    <!-- <div class="form-floating mb-3">
+                        <select class="form-control" name="dept" value="{{i[4]}}" id="form-control">
+                            <option name="dept" value="{{i[4]}}">Depertment</option>
+                            <option name="dept" value="{{i[4]}}">Geography</option>
+                            <option name="dept" value="{{i[4]}}">Bengali</option>
+                            <option name="dept" value="{{i[4]}}">English</option>
+                        </select>
+
+                    </div> -->
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" name='email' value="{{i[5]}}" placeholder="name@example.com"
+                            data-sb-validations="required,email" />
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" name='phone' value="{{i[6]}}" placeholder="(123) 456-7890"
+                            data-sb-validations="required" />
+                        <label for="phone">Phone number</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                        </div>
+                    </div>
+                    <!-- problem -->
+                    
+                     <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="text" name='address' value="{{i[7]}}" placeholder="(123) 456-7890"
+                            data-sb-validations="required" />
+                        <label for="phone">Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                        </div> 
+                    
+                    <!-- Message input-->
+                    <!-- <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" name='address' value="{{i[7]}}" type="text"
+                            placeholder="Enter your message here..." style="height: 10rem"
+                            data-sb-validations="required"></textarea>
+                        <label for="message">Address</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    -->
+                    <br>
+                    <!-- Submit Button-->
+                    <button class="btn btn-primary" id="submitButton" type="submit">Update</button>
+                    <!-- <div class="d-grid"><button class="btn btn-info btn-xl disabled" id="submitButton" type="submit">Submit</button></div> -->
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </form>
+    {% endfor %}
+    </section>
+
+</div>
+
+{% endblock %}
