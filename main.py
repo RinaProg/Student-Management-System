@@ -40,7 +40,7 @@ def edit(roll_no):
     data=cur.fetchall()
     return render_template('editform.html',getdata=data)
 
-@app.route('/update/<int:roll_no>',methods=['GET','POST'])  #work in progress
+@app.route('/update/<int:roll_no>',methods=['GET','POST'])  
 def stu_update(roll_no):
     if request.method=='POST':
         name=request.form['name']
@@ -79,7 +79,7 @@ def search():
         return render_template('search.html',details =  details)
     return render_template('search.html')
             
-@app.route('/login',methods=['GET','POST'])    ##work in progress
+@app.route('/login',methods=['GET','POST'])   
 def login():
   
         if request.method=='GET':
@@ -87,13 +87,16 @@ def login():
    
         else:
             user=request.form['user']
-            password=request.form['password']
-            cur=con.cursor()
-            qry="SELECT user_name,password FROM login"
-            data=user,password
-            cur.execute(qry,data)
-            con.commit()
-            return render_template('layout2.html')   
+            passw=request.form['password']
+
+        qry= f"SELECT * FROM login WHERE password={passw} AND user_name = '{user}'"
+        cur =   con.cursor()
+        cur.execute(qry)
+        res = cur.fetchall()
+        if res:
+            return render_template('layout2.html')
+        else:
+            return "<h1>Invalid UserName or Password !</h2>"  
 
 @app.route('/logout')
 def logout():
@@ -110,7 +113,7 @@ def attendence_form():
         data=roll,name,percent
         cur.execute(qry,data)
         con.commit()
-        return  "successfull...."
+        flash(f'{roll} ID Student Attendance Added Successfully...')
     return render_template('attendance.html')
 
 @app.route('/sform',methods=['GET','POST'])
