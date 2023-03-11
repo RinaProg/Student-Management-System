@@ -1,8 +1,9 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect,flash
 import mariadb
 from datetime import datetime
 
 app=Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 con=mariadb.connect(
     user='root',
     host='localhost',
@@ -65,7 +66,8 @@ def delete(roll_no):
     cur=con.cursor()
     cur.execute(qry)
     con.commit()
-    return "<h1>This student has been Deleteed Successfully.<h1>"
+    flash(f'{roll_no} ID Student has been Deleted Successfully..')
+    return redirect('/dashboard')
 
 @app.route('/search',methods=['POST','GET'])
 def search():
@@ -96,7 +98,7 @@ def login():
         if res:
             return render_template('layout2.html')
         else:
-            return "<h1>Invalid UserName or Password !</h2>"  
+             return redirect('/login')  
 
 @app.route('/logout')
 def logout():
@@ -132,7 +134,7 @@ def student_form():
         data=name,sem,gender,dept,email,phone,address,date
         cur.execute(qry,data)
         con.commit()
-        return  "successfull...."
+        flash('Student added successfully..')
 
     return render_template('studentform.html')
 
@@ -149,7 +151,7 @@ def contact():
         data=name,email,phone,msg,date
         cur.execute(qry,data)
         con.commit()
-        return  "successfull...."
+        flash('Message send Successfully..')
     
     return render_template('contact.html')
 
