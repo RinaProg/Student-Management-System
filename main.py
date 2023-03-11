@@ -50,13 +50,14 @@ def stu_update(roll_no):
         email=request.form['email']
         phone=request.form['phone']
         address=request.form['address']
+        
+        qry= f"UPDATE studentform SET name='{name}',sem={sem},gender='{gender}',depetment='{dept}',email='{email}',phone_no='{phone}',address='{address}' WHERE roll_no={roll_no}" 
         cur=con.cursor()
-        qry= f"UPDATE studentform SET name={name},sem={sem},gender={gender},depetment={dept},email={email},phone_no={phone},address={address} WHERE roll_no={roll_no}" 
         cur.execute(qry)
-        data=cur.fetchall()
-       
-        return render_template('editform.html',getdata=data)
+        con.commit()
+        flash(f'{roll_no} ID Student Updated successfully..')
     return render_template('editform.html')
+
 
 @app.route('/delete/<int:roll_no>',methods=['GET','POST'])
 def delete(roll_no):
