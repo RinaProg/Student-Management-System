@@ -2,64 +2,44 @@
 {% block body %}
 
 <!-- later it would be updated -->
-<section class="page-section" id="contact">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-                <h2 class="mt-0">Perticular student details</h2>
 
+
+<form id="Form" action="/search" method="post" >
+<br>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Search Student Details</h2>
+
+                </div>
             </div>
-        </div>
 
-
-
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <!-- Roll input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="roll" name="roll" type="number" placeholder="Enter your roll..."
+                            data-sb-validations="required" />
+                        <label for="roll">Roll Number</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A Roll Number is required.</div>
+                    </div>
+                    <p align="center"><button class="btn btn-primary" id="submitButton" type="submit">Search</button>
+                    </p>
+</form>
+        <hr>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-            <div class="col-lg-6">
-                
-                    <form id="Form" action="/search" method="post" data-sb-form-api-token="API_TOKEN">
-                        <!-- Roll input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="roll" name="roll" type="text" placeholder="Enter your roll..."
-                                data-sb-validations="required" />
-                            <label for="roll">Roll Number</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A Roll Number is required.</div>
-                        </div>
-                        
-                        <p align="center"><button class="btn btn-primary" id="submitButton" type="submit">Submit</button></p>
-                    </form>
+            
+        {% for user in details %}
+        <p>&diams; Roll      : {{user[0]}}</p>
+        <p>&diams; Name      : {{user[1]}}</p>
+        <p>&diams; Sem       : {{user[2]}}</p>
+        <p>&diams; Gender    : {{user[3]}}</p>
+        <p>&diams; Stream    : {{user[4]}}</p>
+        <p>&diams; Email     : {{user[5]}}</p>
+        <p>&diams; Phone     : {{user[6]}}</p>
+        <p>&diams; Address   : {{user[7]}}</p>
+    </div>
 
-                
+    {% endfor %}
 
-             
-
-                <table id="customers">
-                    <tr>
-                      <th>ID</th>
-                      <th>NAME</th>
-                      <th>PHONE</th>
-                      <th>4</th>
-                      <th>5</th>
-                      <th>6</th>
-                      <th>7</th>
-                      <th>8</th>
-                      <th>9</th>
-                    </tr>
-                  {% for user in details %}
-                  <tr>
-                      <td>{{user[0]}}</td>
-                      <td>{{user[1]}}</td>
-                      <td>{{user[2]}}</td>
-                      <td>{{user[3]}}</td>
-                      <td>{{user[4]}}</td>
-                      <td>{{user[5]}}</td>
-                      <td>{{user[6]}}</td>
-                      <td>{{user[7]}}</td>
-                      <td>{{user[8]}}</td>
-                  </tr>
-                  {% endfor %}
-              </table>
-           
-               
-
-</section>
 {% endblock %}
