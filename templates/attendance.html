@@ -1,45 +1,60 @@
-
 {% extends "layout3.html" %}
 {% block body %}
 
-<section class="page-section" id="contact" >
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Student Attendance Form</h2>
-                       <br>
-                    </div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p align="center"> {{ msg }}</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+    <div class="col-lg-6"> -->
+
+<form id="contactForm" action="/attend" method="post">
+    <br>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Student Attendance Form</h2>
+                <br>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+
+                <!-- Roll input-->
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="roll" name="roll" type="number" placeholder="Enter your roll..."
+                        data-sb-validations="required" />
+                    <label for="roll">Roll Number</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">A Roll Number is required.</div>
+                </div>
+                <!-- Name input-->
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..."
+                        data-sb-validations="required" />
+                    <label for="name">Full Name</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">A Name is required.</div>
+                </div>
+                <!-- Attendance input-->
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="percentage" name="percent" type="number"
+                        placeholder="Enter student attendance..." data-sb-validations="required" />
+                    <label for="percentage">Attendance Percentage(%)</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Percentage(%) is required.</div>
                 </div>
 
-
-
-<div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-    <div class="col-lg-6">
-
-<form id="contactForm" action="/attend" method="post" >
-                            <!-- Roll input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="roll" name="roll" type="number" placeholder="Enter your roll..." data-sb-validations="required" />
-                                <label for="roll">Roll Number</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A Roll Number is required.</div>
-                            </div>
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full Name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A Name is required.</div>
-                            </div>
-                             <!-- Attendance input-->
-                           <div class="form-floating mb-3">
-                                <input class="form-control" id="percentage" name="percent" type="number" placeholder="Enter student attendance..." data-sb-validations="required" />
-                                <label for="percentage">Attendance Percentage(%)</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">Percentage(%) is required.</div>
-                            </div>
-
-                            <p align="center"><button class="btn btn-primary" id="submitButton" type="submit">Submit</button></p>
+                <p align="center"><button class="btn btn-primary" id="submitButton" type="submit">Submit</button></p>
 
 
 
 </form>
-</section>
-{% endblock %}                            
+
+{% endblock %}
