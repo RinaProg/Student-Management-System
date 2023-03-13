@@ -1,11 +1,21 @@
 {% extends "layout3.html" %}
 {% block body %}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+  
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+   <p align="center"> {{ msg }}</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 
-  <form id="contactForm" action="/sform" method="post" >    
-
-<section class="page-section" id="contact"  style="background-color: #F3EAF4;">
-                
+  <form id="contactForm" action="/sform" method="post" >
+            <br>    
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
@@ -72,8 +82,8 @@
                             </div>
                             <!-- Address  input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" name='address' type="text" placeholder="Enter your address here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Address</label>
+                                <textarea class="form-control" id="address" name='address' type="text" placeholder="Enter your address here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="address">Address</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A address is required.</div>
                             </div>
                             
@@ -85,7 +95,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+       
           </form>
 </body>
 </html>
