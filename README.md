@@ -1,4 +1,4 @@
-# Student-Management-System
+# Student-Management-System  &nbsp;<img src="https://img.favpng.com/11/20/6/student-information-system-education-management-png-favpng-VCxiAgkzHMH9nxK2WDdbz51Ur.jpg" width="55" height="40">
 Built in Python Framework Flask
 
 ## OVERVIEW:
