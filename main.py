@@ -83,7 +83,7 @@ def search():
             
 @app.route('/login',methods=['GET','POST'])   
 def login():
-  
+   try:
         if request.method=='GET':
             return render_template('login.html')
    
@@ -98,7 +98,9 @@ def login():
         if res:
             return render_template('layout2.html')
         else:
-             return redirect('/login')  
+             return redirect('/login') 
+   except:
+        return "<h2>Wrong Password! Check your password and try again...Your Password must be 5 Digit Number,Don't use Uppercase & Lowercase Letters & Special Characters also.</h2>"
 
 @app.route('/logout')
 def logout():
