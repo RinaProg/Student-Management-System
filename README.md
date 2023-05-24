@@ -2,7 +2,14 @@
 Built in Python Framework Flask
 
 ## OVERVIEW:
+This student management project manages student records on database and also fetch particular student details by providing respective ids and admin panel is associated that can perform some operations on that records after verified authentication.
 
+## FEATURES:
+- Create
+- Display
+- Search
+- Update
+- Delete
 ## OUTPUT:
   <p>
   <p align="left"><img src="https://user-images.githubusercontent.com/122221586/226708839-aaf96004-3995-4dfe-8dbc-a07f6a474421.png" width=480 height=350>
