@@ -11,7 +11,7 @@ This student management project manages student records on database and also fet
 - Update
 - Delete
 ## DESCRIBE ABOVE FEATURES:
-### Create – This method takes details from the student like name, sem, gender, depertment, email, phone number and address. It  generates id for thar particular student so admin can give the attendance on the basis of the ids.
+### Create – This method takes details from the student like name, sem, gender, depertment, email, phone number and address. It  generates roll number for that particular student so admin can give the attendance on the basis of the roll number.
 
 ### Display – This method displays the details of every student.
 
