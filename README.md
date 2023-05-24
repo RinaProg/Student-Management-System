@@ -10,6 +10,16 @@ This student management project manages student records on database and also fet
 - Search
 - Update
 - Delete
+## DESCRIBE ABOVE FEATURES:
+### Create – This method takes details from the student like name, sem, gender, depertment, email, phone number and address. It  generates id for thar particular student so admin can give the attendance on the basis of the ids.
+
+### Display – This method displays the details of every student.
+
+### Search – This method searches for a particular student from the list of students. This method will ask the student for roll number and then search according to the roll number.
+
+### Update – This method updates the details of the student.If finds any wrong information then update the details of that particular student.
+
+### Delete – This method deletes the record of a particular student with a matching roll number.
 ## OUTPUT:
   <p>
   <p align="left"><img src="https://user-images.githubusercontent.com/122221586/226708839-aaf96004-3995-4dfe-8dbc-a07f6a474421.png" width=480 height=350>
